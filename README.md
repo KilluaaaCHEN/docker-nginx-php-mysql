@@ -23,7 +23,7 @@
 5. Command
     ```bash
    # Run
-   $ docker-compose -p docker-nginx-php-mysql up'
+   $ docker-compose -p docker-nginx-php-mysql up
    
    # Run Daemon
    $ docker-compose -p docker-nginx-php-mysql up -d
