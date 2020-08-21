@@ -5,7 +5,7 @@
 2. Clone project
     - Git
         ```bash
-        git clone git@github.com:KilluaChen/php-nginx-mysql.git
+        git clone git@github.com:KilluaChen/docker-nginx-php-mysql.git
         ```
     - Download
 3. Append to `/etc/hosts` file
