@@ -7,10 +7,10 @@ services:
     ports:
       - "80:80"
     volumes:
-      - "../etc/nginx/nginx.conf:/etc/nginx/nginx.conf:ro"
-      - "../etc/nginx/conf.d:/etc/nginx/conf.d:ro"
-      - "../logs:/var/log/nginx/"
-      - "../web:/var/www/"
+      - "./etc/nginx/nginx.conf:/etc/nginx/nginx.conf:ro"
+      - "./etc/nginx/conf.d:/etc/nginx/conf.d:ro"
+      - "./logs:/var/log/nginx/"
+      - "./web:/var/www/"
     depends_on:
       - php-fpm5.6
       - php-fpm7.4
@@ -21,15 +21,15 @@ services:
     container_name: php-7.4.4
     restart: always
     volumes:
-      - "../etc/php/php.ini:/usr/local/etc/php/conf.d/php.ini:ro"
-      - "../web:/var/www/"
+      - "./etc/php/php.ini:/usr/local/etc/php/conf.d/php.ini:ro"
+      - "./web:/var/www/"
   php-fpm5.6:
     image: nanoninja/php-fpm:5.6.32
     container_name: php-5.6.32
     restart: always
     volumes:
-      - "../etc/php/php.ini:/usr/local/etc/php/conf.d/php.ini:ro"
-      - "../web:/var/www/"
+      - "./etc/php/php.ini:/usr/local/etc/php/conf.d/php.ini:ro"
+      - "./web:/var/www/"
   mysql:
     image: mysql:${MYSQL_VERSION}
     container_name: mysql-${MYSQL_VERSION}
@@ -37,7 +37,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - "../data/db/mysql:/var/lib/mysql"
+      - "./data/db/mysql:/var/lib/mysql"
     environment:
       - MYSQL_DATABASE=${MYSQL_DATABASE}
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
@@ -48,8 +48,8 @@ services:
     ports:
       - "6379:6379"
     volumes:
-      - "../data/db/redis:/data"
-      - "../etc/redis/redis.conf:/etc/redis.conf"
+      - "./data/db/redis:/data"
+      - "./etc/redis/redis.conf:/etc/redis.conf"
     command: ["redis-server", "/etc/redis.conf"]
   phpmyadmin:
     image: phpmyadmin/phpmyadmin

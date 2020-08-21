@@ -16,10 +16,16 @@
      127.0.0.1       test.56.com
      127.0.0.1       test.74.com
      ```
-3. Run Project
+3. Command
     ```bash
-   $ cd docker
-   $ docker-compose -p docker-nginx-php-mysql up 
+   # Run
+   $ docker-compose -p docker-nginx-php-mysql up
+   # Run Daemon
+   $ docker-compose -p docker-nginx-php-mysql up -d
+   # Stop
+   $ docker-compose -p docker-nginx-php-mysql stop
+   # Delete
+   $ docker-compose -p docker-nginx-php-mysql down
    ```
 4. Visit
     - Localhost [http://localhost](http://localhost/index.html)
