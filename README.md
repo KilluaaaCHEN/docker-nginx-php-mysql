@@ -5,6 +5,10 @@
         [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/)
     - Docker-compose
         [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/)
+        > 下载太慢更可以换源,`linux`下可以执行以下命令,注意更换最新版本号
+        ```
+        curl -L https://get.daocloud.io/docker/compose/releases/download/1.26.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+      ```
 2. Start Docker Service
     ```
    $ sudo systemctl start docker
