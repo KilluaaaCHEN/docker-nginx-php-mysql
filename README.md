@@ -21,9 +21,10 @@
             ```
         - [Other systems](https://docs.docker.com/compose/install/)
 
-2. Start Docker Service
+2. Start Docker Service (centos)
     ```
    $ sudo systemctl start docker
+   $ sudo systemctl enable docker
    ```
 3. Clone project
     - Git  `git clone git@github.com:KilluaChen/docker-nginx-php-mysql.git`
