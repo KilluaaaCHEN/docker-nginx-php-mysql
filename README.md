@@ -2,13 +2,23 @@
 
 1. Install Dcoker
     - Docker
-        [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/)
+        - centos
+            ```bash
+            $ sudo yum install -y yum-utils
+
+            $ sudo yum-config-manager \
+              --add-repo \
+              https://download.docker.com/linux/centos/docker-ce.repo
+            $ sudo yum install docker-ce docker-ce-cli containerd.io
+            ```
+        - [Other systems](https://docs.docker.com/engine/install/)
     - Docker-compose
-        [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/)
-        > 下载太慢更可以换源,`linux`下可以执行以下命令,注意更换最新版本号
-        ```
-        curl -L https://get.daocloud.io/docker/compose/releases/download/1.26.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
-      ```
+        - centos
+            ```
+            curl -L https://get.daocloud.io/docker/compose/releases/download/1.26.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+            ```
+        - [Other systems](https://docs.docker.com/compose/install/)
+
 2. Start Docker Service
     ```
    $ sudo systemctl start docker
@@ -18,9 +28,10 @@
     - [Download](https://github.com/KilluaChen/docker-nginx-php-mysql/archive/master.zip)
 1. Create log dir
     ```
-   $ mkdir -p logs/error & mkdir -p logs/access
-   ```
-4. Append to `/etc/hosts` file
+    $ cd ocker-nginx-php-mysql
+    $ mkdir -p logs/error & mkdir -p logs/access
+    ```
+4. Append to `/etc/hosts` file (Optional)
     ```bash
      # Docker
      127.0.0.1       localhost
