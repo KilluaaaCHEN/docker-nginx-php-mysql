@@ -26,7 +26,7 @@
     - [Download](https://github.com/KilluaChen/docker-nginx-php-mysql/archive/master.zip)
 1. Create log dir
     ```
-    $ cd ocker-nginx-php-mysql
+    $ cd docker-nginx-php-mysql
     $ mkdir -p logs/error & mkdir -p logs/access
     ```
 4. Append to `/etc/hosts` file (Optional)
