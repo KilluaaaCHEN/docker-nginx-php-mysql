@@ -12,7 +12,12 @@
     - Docker-compose
         - centos
             ```
-            curl -L https://get.daocloud.io/docker/compose/releases/download/1.26.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+            $ curl -L https://get.daocloud.io/docker/compose/releases/download/1.26.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+            $ sudo chmod +x /usr/local/bin/docker-compose
+            # append to ~/.bashrc
+            alias docker-compose="/usr/local/bin/docker-compose"
+            
+            $ source ~/.bashrc
             ```
         - [Other systems](https://docs.docker.com/compose/install/)
 
