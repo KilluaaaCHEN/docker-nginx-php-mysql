@@ -29,19 +29,19 @@
 5. Command
     ```bash
    # Run
-   $ docker-compose  up
+   $ docker-compose up
 
    # Start single service
    $ docker-compose up mysql
    
    # Run Daemon
-   $ docker-compose  up -d
+   $ docker-compose up -d
    
    # Stop
-   $ docker-compose  stop
+   $ docker-compose stop
    
    # Delete
-   $ docker-compose  down
+   $ docker-compose down
    ```
 6. Visit
     - Localhost [http://localhost](http://localhost/index.html)
