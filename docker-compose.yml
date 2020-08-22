@@ -12,20 +12,12 @@ services:
       - "./logs:/var/log/nginx/"
       - "./web:/var/www/"
     depends_on:
-      - php-fpm5.6
-      - php-fpm7.4
+      - php-fpm
       - mysql
     command: ["nginx","-g","daemon off;"]
-  php-fpm7.4:
-    image: nanoninja/php-fpm:7.4.4
-    container_name: php-7.4.4
-    restart: always
-    volumes:
-      - "./etc/php/php.ini:/usr/local/etc/php/conf.d/php.ini:ro"
-      - "./web:/var/www/"
-  php-fpm5.6:
-    image: nanoninja/php-fpm:5.6.32
-    container_name: php-5.6.32
+  php-fpm:
+    image: nanoninja/php-fpm:${PHP_VERSION}
+    container_name: php-${PHP_VERSION}
     restart: always
     volumes:
       - "./etc/php/php.ini:/usr/local/etc/php/conf.d/php.ini:ro"
@@ -57,8 +49,8 @@ services:
     restart: always
     environment:
       - PMA_ARBITRARY=1
-#用nginx的转发80端口出来,这样可以80端口绑定虚拟主机
-#    ports:
-#      - "8000:80"
+    #用nginx的转发80端口出来,这样可以80端口绑定虚拟主机
+    #    ports:
+    #      - "8000:80"
     depends_on:
       - mysql

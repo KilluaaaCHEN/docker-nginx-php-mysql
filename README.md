@@ -1,4 +1,4 @@
-### Nginx + PHP (multi-version) + Mysql + Redis Docker-compose
+### Nginx + PHP + Mysql + Redis Docker-compose
 
 1. Install Dcoker
     - Docker
@@ -25,29 +25,31 @@
      # Docker
      127.0.0.1       localhost
      127.0.0.1       test.pma.com
-     127.0.0.1       test.56.com
-     127.0.0.1       test.74.com
      ```
 5. Command
     ```bash
    # Run
-   $ docker-compose -p docker-nginx-php-mysql up
+   $ docker-compose  up
+
+   # Start single service
+   $ docker-compose up mysql
    
    # Run Daemon
-   $ docker-compose -p docker-nginx-php-mysql up -d
+   $ docker-compose  up -d
    
    # Stop
-   $ docker-compose -p docker-nginx-php-mysql stop
+   $ docker-compose  stop
    
    # Delete
-   $ docker-compose -p docker-nginx-php-mysql down
+   $ docker-compose  down
    ```
 6. Visit
     - Localhost [http://localhost](http://localhost/index.html)
     - PhpMyAdmin [http://test.pma.com](http://test.pma.com)
-    - php5.6 [http://test.56.com](http://test.56.com)
-    - php7.4 [http://test.74.com](http://test.74.com)
-    
+7.  multi-version PHP
+    - 在Docker-compose 里面添加多个php-fpm服务,并定义成不同service 名称
+    - 在nginx 配置中,修改`fastcgi_pass`.监听不同的service即可完成多版本PHP
+
 7. PS
     - 确保`80`,`3306`,`6479`端口没有被占用
     - 下载`Docker 镜像`过慢可以使用阿里的[容器镜像服务](https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors) 
