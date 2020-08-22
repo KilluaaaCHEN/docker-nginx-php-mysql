@@ -9,10 +9,6 @@
         ```
         curl -L https://get.daocloud.io/docker/compose/releases/download/1.26.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
       ```
-1. Create log dir
-    ```
-   $ mkdir -p logs/error & mkdir -p logs/access
-   ```
 2. Start Docker Service
     ```
    $ sudo systemctl start docker
@@ -20,6 +16,10 @@
 3. Clone project
     - Git  `git clone git@github.com:KilluaChen/docker-nginx-php-mysql.git`
     - [Download](https://github.com/KilluaChen/docker-nginx-php-mysql/archive/master.zip)
+1. Create log dir
+    ```
+   $ mkdir -p logs/error & mkdir -p logs/access
+   ```
 4. Append to `/etc/hosts` file
     ```bash
      # Docker
