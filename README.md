@@ -43,7 +43,7 @@
 5. Command
     ```bash
    # Run
-   $ docker-compose up -p
+   $ docker-compose up
 
    # Start single service
    $ docker-compose up mysql
