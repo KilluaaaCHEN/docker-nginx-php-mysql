@@ -38,7 +38,7 @@
 5. Command
     ```bash
    # Run
-   $ docker-compose up
+   $ docker-compose up -p
 
    # Start single service
    $ docker-compose up mysql
@@ -58,7 +58,12 @@
 7.  multi-version PHP
     - 在Docker-compose 里面添加多个php-fpm服务,并定义成不同service 名称
     - 在nginx 配置中,修改`fastcgi_pass`.监听不同的service即可完成多版本PHP
-
+1. zsh alias
+    ```bash
+    alias dis="docker images"
+    alias dps="docker ps"
+    alias ds="/home/data/docker-nginx-php-mysql && docker-compose"
+    ```
 7. PS
     - 确保`80`,`3306`,`6479`端口没有被占用
     - 下载`Docker 镜像`过慢可以使用阿里的[容器镜像服务](https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors) 
