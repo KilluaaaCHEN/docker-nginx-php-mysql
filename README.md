@@ -51,6 +51,8 @@
 7. PS
     - 确保`80`,`3306`,`6479`端口没有被占用
     - 下载`Docker 镜像`过慢可以使用阿里的[容器镜像服务](https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors) 
+    - 如果挂载的目录没有权限,需要添加file sharing 
+        > You can configure shared paths from Docker -> Preferences... -> File Sharing.
     - 更多设置参考 [https://github.com/nanoninja/docker-nginx-php-mysql](https://github.com/nanoninja/docker-nginx-php-mysql)
     
      
