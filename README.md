@@ -27,7 +27,7 @@
    $ sudo systemctl enable docker
    ```
 3. Clone project
-    - Git  `git clone git@github.com:KilluaChen/docker-nginx-php-mysql.git`
+    - Git  `git clone https://github.com/KilluaChen/docker-nginx-php-mysql.git`
     - [Download](https://github.com/KilluaChen/docker-nginx-php-mysql/archive/master.zip)
 1. Create log dir
     ```
