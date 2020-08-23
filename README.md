@@ -1,4 +1,4 @@
-### Nginx + PHP + Mysql + Redis Docker-compose
+###  Docker-compose  Nginx + PHP + Mysql + Redis + Composer
 
 1. Install Dcoker
     - Docker
