@@ -55,7 +55,9 @@ services:
     restart: always
     environment:
       PMA_HOST: mysql
-      PMA_ARBITRARY: 1
+    #  PMA_ARBITRARY: 1
+    # 是否允许连接外部mysql
+
     #用nginx的转发80端口出来,这样可以80端口绑定虚拟主机
     #    ports:
     #      - "8000:80"
