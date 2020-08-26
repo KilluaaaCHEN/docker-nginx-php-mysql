@@ -1,35 +1,5 @@
 version: "3.8"
 services:
-  nginx:
-    image: nginx:alpine
-    container_name: nginx
-    restart: always
-    ports:
-      - "80:80"
-    volumes:
-      - "./etc/nginx/nginx.conf:/etc/nginx/nginx.conf:ro"
-      - "./etc/nginx/conf.d:/etc/nginx/conf.d:ro"
-      - "./etc/nginx/ssl:/etc/nginx/ssl:ro"
-      - "./logs:/var/log/nginx/"
-      - "${LOCAL_DIR}:${DOCKER_DIR}"
-    depends_on:
-      - php-fpm
-      - mysql
-    command: ["nginx","-g","daemon off;"]
-  php-fpm:
-    image: nanoninja/php-fpm:${PHP_VERSION}
-    container_name: php-${PHP_VERSION}
-    restart: "no"
-    volumes:
-      - "./etc/php/php.ini:/usr/local/etc/php/conf.d/php.ini:ro"
-      - "${LOCAL_DIR}:${DOCKER_DIR}"
-  composer:
-    image: composer
-    container_name: composer
-    volumes:
-      - "${LOCAL_DIR}:${DOCKER_DIR}"
-    command: ["/bin/bash"]
-    tty: true
   mysql:
     image: mysql:${MYSQL_VERSION}
     container_name: mysql-${MYSQL_VERSION}
@@ -49,18 +19,41 @@ services:
     volumes:
       - "./data/db/redis:/data"
       - "./etc/redis/redis.conf:/etc/redis.conf"
-    command: ["redis-server", "/etc/redis.conf"]
+    command: [ "redis-server", "/etc/redis.conf" ]
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin
     restart: always
-    environment:
-      PMA_HOST: mysql
-    #  PMA_ARBITRARY: 1
-    # 是否允许连接外部mysql
-
-    #用nginx的转发80端口出来,这样可以80端口绑定虚拟主机
-    #    ports:
-    #      - "8000:80"
     depends_on:
       - mysql
+    environment:
+      PMA_HOST: mysql
+      #PMA_ARBITRARY: 1 # 是否允许登录外部mysql
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "./etc/nginx/nginx.conf:/etc/nginx/nginx.conf:ro"
+      - "./etc/nginx/conf.d:/etc/nginx/conf.d:ro"
+      - "./etc/nginx/ssl:/etc/nginx/ssl:ro"
+      - "./logs:/var/log/nginx/"
+      - "${LOCAL_DIR}:${DOCKER_DIR}"
+    depends_on:
+      - mysql
+      - redis
+      - php-fpm
+    command: [ "nginx","-g","daemon off;" ]
+  php-fpm:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+    image: killuachen/php-fpm:${PHP_VERSION}
+    container_name: php-${PHP_VERSION}
+    restart: always
+    volumes:
+      - "./etc/php/php.ini:/usr/local/etc/php/conf.d/php.ini:ro"
+      - "${LOCAL_DIR}:${DOCKER_DIR}"
