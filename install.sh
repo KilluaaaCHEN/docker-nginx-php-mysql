@@ -19,8 +19,8 @@ composer config -g repo.packagist composer https://packagist.phpcomposer.com
 
 #Crontab
 apt-get install -y cron
-echo "* * * * * /usr/local/bin/php -r \"echo date('Y-m-d H:i:s').PHP_EOL;\" >> /var/www/crontab.log" > /etc/cron.dcrontab_list
-crontab /etc/cron.dcrontab_list
+touch /etc/cron.d/crontab
+crontab /etc/cron.d/crontab
 
 #File
 rm -f /var/www/install.sh

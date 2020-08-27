@@ -52,8 +52,10 @@ services:
 #      context: .
 #      dockerfile: Dockerfile
     image: killuachen/php-fpm:${PHP_VERSION}
+    #image: nanoninja/php-fpm/php-fpm:${PHP_VERSION}
     container_name: php-${PHP_VERSION}
     restart: always
     volumes:
       - "./etc/php/php.ini:/usr/local/etc/php/conf.d/php.ini:ro"
+      - "./etc/cron.d/crontab:/etc/cron.d/crontab:ro"
       - "${LOCAL_DIR}:${DOCKER_DIR}"
